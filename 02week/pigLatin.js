@@ -10,7 +10,19 @@ const rl = readline.createInterface({
 
 function pigLatin(word) {
 
-  // Your code here
+    /* 
+    Lower case and trim your word using string methods (this will pass some of the tests that are written at the bottom of the file)
+    */
+   let trimWord = word.trim().toLowerCase();
+   
+
+    /* 
+    IF the first letter is a vowel (you will want to use array and string methods to check), we simply need to return the word with 'yay' on the end 
+    */
+    
+    /* 
+    ELSE since the first letter is NOT a vowel, we need to LOOP through our word to find the first vowel. Once we find it we need to stop the loop and slice the string at that index so that all consonants before the vowel are moved to the end of the word and then 'ay' is added to the end of that.
+    */
 
 }
 
