@@ -25,27 +25,65 @@ function printBoard() {
 
 function horizontalWin() {
   // Your code here
+for (let i=0; i<board.length; i++) {
+  if (board[i][0] == playerTurn && board[i][1] == playerTurn && board[i][2] == playerTurn) {
+    console.log('WINNER');
+    return true
+  }
+}
 }
 
 function verticalWin() {
   // Your code here
+    if (board[0][0] == playerTurn && board[1][0] == playerTurn && board[2][0] == playerTurn) {
+      console.log('WINNER');
+      return true
+    } else if (board[0][1] == playerTurn && board[1][1] == playerTurn && board[2][1] == playerTurn) {
+      console.log('WINNER');
+      return true
+    } else if (board[0][2] == playerTurn && board[1][2] == playerTurn && board[2][2] == playerTurn) {
+      console.log('WINNER');
+      return true
+    }
 }
 
 function diagonalWin() {
   // Your code here
+  if (board[0][0] == playerTurn && board[1][1] == playerTurn && board[2][2] == playerTurn) {
+    console.log('WINNER');
+    return true
+  } else if (board[0][2] == playerTurn && board[1][1] == playerTurn && board[2][0] == playerTurn) {
+    console.log('WINNER');
+    return true
+  }
 }
 
 function checkForWin() {
   // Your code here
+ if (horizontalWin()) {
+   return "Winner"
+ } else if (verticalWin()) {
+   return "Winner"
+ } else if (diagonalWin()) {
+   return "Winner"
+ }
 }
 
 function ticTacToe(row, column) {
   if (playerTurn == 'X') {
     board[row][column] = playerTurn;
     // check whether or not the spot is filled
-  //check for win
+    if (board[row][column] === " ") {
+    } else {
+      (playerTurn = 'X')
+    }
+    //check for win
+    if (checkForWin() != "Winner") { 
     playerTurn = 'O';
     } else {
+
+    }
+  } else {
       board[row][column] = playerTurn;
       // check whether or not the spot is filled
   //check for win
