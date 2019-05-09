@@ -28,13 +28,53 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
-}
+  let solutionArray = solution.split('')
+  let guessArray = guess.split('')
+  
+  let correctLetterLocations = 0
+  let correctLetters = 0
+
+  for (let i=0; i<4; i++) {
+    if (guessArray[i] == solutionArray[i]) {
+      correctLetterLocations = correctLetterLocations + 1
+      solutionArray[i] = null
+    } else {
+      let targetIndex = guessArray.indexOf(solutionArray[i])
+      if (targetIndex > -1) {
+        correctLetters = correctLetters + 1
+        solutionArray[i] = null 
+      }
+    }
+  }
+  // console.log(correctLetterLocations);
+  // console.log(correctLetters);
+  
+  return correctLetterLocations + "-" + correctLetters
+  }
+ 
+
+
+
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
+   //solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
+
+  let hint = generateHint(guess)
+
+  board.push(guess + ", " + hint)
+
+  if (guess == solution) {
+    return 'You guessed it!'
+  } else if (board.length == 10) {
+    return 'You ran out of turns! The solution was ' + solution
+  } else {
+    return 'Guess again!'
+  }
+
+  
 }
 
 
